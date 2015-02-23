@@ -1,4 +1,4 @@
-<h1>Authors#edit</h1>
+
 
 <% if @author.errors.any? %>
    <% @author.errors.full_messages.each do |error|%>
@@ -8,21 +8,46 @@
    <% end %>
 <% end %>
 
+<div class="panel panel-primary">
+   <div class="panel-heading">
+      <h3 class="panel-title">Edit this Author</h3><br>
+   </div>
 
-<%= form_for @author do |f| %>
-   <%= f.label :first_name %>
-   <%= f.text_field :first_name %>
+         <%= form_for @author do |f| %>
+         <table class="table">
+           <tbody>
+             <tr>
+               <td class="col-md-1"> <%= f.label :first_name %></td>
+               <td class="col-md-4"><%= f.text_field :first_name %></td>
+             </tr>
+             <tr>
+               <td class="col-md-1"><%= f.label :last_name %></td>
+                <td class="col-md-4"><%= f.text_field :last_name%></td>
+             </tr>
+            <tr>
+               <td class="col-md-1"><%= f.label :age %></td>
+               <td class="col-md-4"><%= f.text_field :age %></td>
+            </tr>
 
-   <%= f.label :last_name %>
-   <%= f.text_field :last_name %>
+             </tbody>
+         </table>
+                        
+            <br>
+            <div style="padding-left: 50px">
+               <%= f.submit "Update Author", class:"btn btn-danger" %>
+               <%= link_to "Delete", @author, method: "DELETE", class:"btn btn-default" , data:{confirm: "Are you sure you want to delete?"} %>
+            </div>
+         <% end %>
 
-   <%= f.label :age %>
-   <%= f.text_field :age %>
 
-   <%= f.submit "Update Author" %>
-<% end %>
+         <br>
+
+         
+   
+     
+   </div>
+
+</div>
 
 
-<br>
 
-<%= link_to "Delete", @author, method: "DELETE", class:"btn btn-danger" , data:{confirm: "Are you sure you want to delete?"} %>

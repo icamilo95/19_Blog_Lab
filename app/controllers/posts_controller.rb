@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   def index
       @author = Author.find params[:author_id]
       @posts = @author.posts
+      
   end
 
   def new

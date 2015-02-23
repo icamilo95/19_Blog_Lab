@@ -1,27 +1,35 @@
-<h1>Authors#new</h1>
+<div class="panel panel-primary">
+   <div class="panel-heading">
+      <h3 class="panel-title">Add a new Author</h3><br>
+      <%= button_to "List of Authors", authors_path , :method => "get", :class => "btn btn-default" %>
+   </div>
+   <div class="panel-body">
+      <% if @author.errors.any? %>
+         <% @author.errors.full_messages.each do |error|%>
+         <p class="text-danger">
+            <%= error%>
+         </p>
+         <% end %>
+      <% end %>
 
-<% if @author.errors.any? %>
-   <% @author.errors.full_messages.each do |error|%>
-   <p class="text-danger">
-      <%= error%>
-   </p>
-   <% end %>
-<% end %>
-
-
-<%= form_for @author do |f| %>
-   <%= f.label :first_name %>
-   <%= f.text_field :first_name %>
-
-   <%= f.label :last_name %>
-   <%= f.text_field :last_name %>
-
-   <%= f.label :age %>
-   <%= f.text_field :age %>
-
-   <%= f.submit %>
-<% end %>
-
-<br>
-<%= link_to "List of Authors", authors_path %>
+      
+      <%= form_for @author do |f| %>
+      <div class="row ">
+         <%= f.label :first_name, :class=>"col-md-2" %>
+         <%= f.text_field :first_name, :class=>"col-md-5" %>
+      </div>  
+      <div class="row ">
+         <%= f.label :last_name, :class=>"col-md-2" %>
+         <%= f.text_field :last_name, :class=>"col-md-5" %>
+      </div>  
+      <div class="row">
+         <%= f.label :age, :class=>"col-md-2" %>
+         <%= f.text_field :age, :class=>"col-md-5" %>
+      </div>  
+      <br>
+         <%= f.submit "Create Author", :class => "btn btn-danger col-md-2"%>
+                      
+      <% end %>
+   </div>
+</div>
 
