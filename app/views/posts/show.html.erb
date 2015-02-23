@@ -1,0 +1,13 @@
+<h1>Posts#show</h1>
+
+
+<li>Title: <%= @post.title%></li>
+<li>Body: <%= @post.body%></li>
+<li>Category: <%= @post.category%></li>
+<br>
+<%= link_to "Edit Post", edit_post_path(@post) %>
+<br>
+<br>
+
+<%= link_to "List of Posts", author_posts_path(@author) %>
+<%= link_to "List of Authors", authors_path %>

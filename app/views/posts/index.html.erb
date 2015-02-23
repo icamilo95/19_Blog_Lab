@@ -1,0 +1,12 @@
+<h1>Posts#index</h1>
+
+
+
+<% @posts.each do |post| %>
+   <li><%= link_to post.title, post_path(post) %></li>
+<% end  %>
+
+<br>
+
+<%= link_to "Add new Post", new_author_post_path %>
+<%= link_to "List of Authors", authors_path %>

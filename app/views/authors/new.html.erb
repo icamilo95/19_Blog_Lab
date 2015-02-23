@@ -1,0 +1,27 @@
+<h1>Authors#new</h1>
+
+<% if @author.errors.any? %>
+   <% @author.errors.full_messages.each do |error|%>
+   <p class="text-danger">
+      <%= error%>
+   </p>
+   <% end %>
+<% end %>
+
+
+<%= form_for @author do |f| %>
+   <%= f.label :first_name %>
+   <%= f.text_field :first_name %>
+
+   <%= f.label :last_name %>
+   <%= f.text_field :last_name %>
+
+   <%= f.label :age %>
+   <%= f.text_field :age %>
+
+   <%= f.submit %>
+<% end %>
+
+<br>
+<%= link_to "List of Authors", authors_path %>
+
